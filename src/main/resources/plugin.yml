@@ -1,0 +1,4 @@
+name: test-plugin
+version: '${project.version}'
+main: me.fhicks.testplugin.Test_plugin
+api-version: '1.20'
