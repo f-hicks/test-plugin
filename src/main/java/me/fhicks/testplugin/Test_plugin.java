@@ -9,10 +9,12 @@ public final class Test_plugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info(Color.GREEN + "Enabled " + this.getName());
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
 
     @Override
     public void onDisable() {
         getLogger().info(Color.RED + "Disabled " + this.getName());
     }
+
 }
