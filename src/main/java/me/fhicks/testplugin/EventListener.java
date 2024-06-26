@@ -36,9 +36,9 @@ public class EventListener implements Listener { //Implements the Listener inter
     @EventHandler
     public void onPlayerDamage(EntityDamageEvent event) throws IOException {
         if (event.getEntity() instanceof Player){ // check if it is a player being damaged
-            //currently still shows this if the damage is blocked e.g. by a shield
-            HomeAssistantAPI.sendRequest("/api/services/script/turn_on", "script.mc_damage");
-
+            if (event.getFinalDamage() != 0) { // check if there is actually any damage being applied, eg if a shield has blocked it.
+                HomeAssistantAPI.sendRequest("/api/services/script/turn_on", "script.mc_damage");
+            }
         }
     }
 }
