@@ -1,0 +1,53 @@
+alias: mc damage
+sequence:
+  - variables:
+      colour: "{{state_attr('light.mc_lights', 'rgb_color')}}"
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: red
+    target:
+      entity_id: light.mc_lights
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 100
+  - service: light.turn_off
+    target:
+      entity_id:
+        - light.mc_lights
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 100
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      color_name: red
+    target:
+      entity_id: light.mc_lights
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 100
+  - service: light.turn_off
+    target:
+      entity_id:
+        - light.mc_lights
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 100
+  - service: light.turn_on
+    target:
+      entity_id: light.mc_lights
+    data:
+      rgb_color: "{{colour}}"
+      brightness_pct: 100
+description: ""
